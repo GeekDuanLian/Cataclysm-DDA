@@ -18,6 +18,12 @@ jobs:
       github.event.workflow_run.status == 'success' &&
       github.repository == 'CleverRaven/Cataclysm-DDA' }}
     steps:
+      - name: test
+        run: |
+          echo '${{ github.event.workflow_run.event }}'
+          echo '${{ github.event.workflow_run.conclusion }}'
+          echo '${{ github.event.workflow_run.status }}'
+          echo '${{ github.repository }}'
       - name: "Install gettext tools"
         run: sudo apt install gettext
       - name: "Install Transifex CLI"
